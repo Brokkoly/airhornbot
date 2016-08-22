@@ -141,8 +141,7 @@ var OVERWATCH *SoundCollection = &SoundCollection{
 		createSound("76_friendly", 1000, 250),
 		createSound("symmetra_friendly", 1000, 250),
 		createSound("symmetra_enemy", 1000, 250), //each hero has a line for when they see an enemy symmetra turret. not sure how to implement
-		createSound("torbjorn_enemy", 1000, 250), //consider shortening to torb?
-		createSound("torbjorn_friendly", 1000, 250),
+		createSound("torbjorn", 1000, 250),
 		createSound("tracer_enemy", 1000, 250),    //enemy line has variations. variations are an argument for splitting it up to be !owtracer, putting them in separate sound collections
 		createSound("tracer_friendly", 1000, 250), //doesn't exist?
 		createSound("widow_enemy", 1000, 250),     //consider shortening to widow?
