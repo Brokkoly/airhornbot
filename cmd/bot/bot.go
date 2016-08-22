@@ -107,8 +107,7 @@ var OVERWATCH *SoundCollection = &SoundCollection{
 	Sounds: []*Sound{
 		//looking for sounds on
 		//http://rpboyer15.github.io/sounds-of-overwatch/
-		createSound("bastion_enemy", 1000, 250),
-		createSound("bastion_friendly", 1000, 250),
+		createSound("bastion", 1000, 250),
 		createSound("dva_enemy", 1000, 250),
 		createSound("dva_friendly", 1000, 250),
 		createSound("genji_enemy", 1000, 250),
@@ -135,8 +134,7 @@ var OVERWATCH *SoundCollection = &SoundCollection{
 		createSound("pharah_friendly", 1000, 250),
 		createSound("reaper_enemy", 1000, 250), //not found
 		createSound("reaper_friendly", 1000, 250),
-		createSound("reinhardt_friendly", 1000, 250), //doesn't exist?
-		createSound("reinhardt_enemy", 1000, 250),    //consider shortening to ?????
+		createSound("reinhardt", 1000, 250),
 		createSound("roadhog_enemy", 1000, 250),
 		createSound("roadhog_friendly", 1000, 250),
 		createSound("76_enemy", 1000, 250), //consider shortening to s76, s:76?
