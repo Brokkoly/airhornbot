@@ -252,6 +252,16 @@ var BIRTHDAY *SoundCollection = &SoundCollection{
 	},
 }
 
+var ROODE *SoundCollection = &SoundCollection{
+	Prefix: "roode",
+	Commands: []string{
+		"!roode",
+	},
+	Sounds: []*Sound{
+		createSound("glorious", 10, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -260,6 +270,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	COW,
 	BIRTHDAY,
 	OVERWATCH,
+	ROODE,
 }
 
 // Create a Sound struct
