@@ -258,7 +258,9 @@ var ROODE *SoundCollection = &SoundCollection{
 		"!roode",
 	},
 	Sounds: []*Sound{
-		createSound("glorious", 10, 250),
+		createSound("glorious", 100, 250),
+		createSound("defend", 5, 250),
+		createSound("victorious_full", 1, 250),
 	},
 }
 
