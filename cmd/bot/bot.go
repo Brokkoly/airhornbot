@@ -264,6 +264,17 @@ var ROODE *SoundCollection = &SoundCollection{
 	},
 }
 
+var REVIVAL *SoundCollection = &SoundCollection{
+	Prefix: "revival",
+	Commands: []string{
+		"!revival",
+	},
+	Sounds: []*Sound{
+		createSound("we_go_hard", 100, 250),
+		createSound("say_yeah", 25, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -273,6 +284,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	BIRTHDAY,
 	OVERWATCH,
 	ROODE,
+	REVIVAL,
 }
 
 // Create a Sound struct
