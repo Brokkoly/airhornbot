@@ -275,6 +275,17 @@ var REVIVAL *SoundCollection = &SoundCollection{
 	},
 }
 
+var STYLES *SoundCollection = &SoundCollection{
+	Prefix: "styles",
+	Commands: []string{
+		"!styles",
+		"!aj",
+	},
+	Sounds: []*Sound{
+		createSound("gay_community", 100, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -285,6 +296,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	OVERWATCH,
 	ROODE,
 	REVIVAL,
+	STYLES,
 }
 
 // Create a Sound struct
