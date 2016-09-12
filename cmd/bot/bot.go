@@ -103,6 +103,7 @@ var OVERWATCH *SoundCollection = &SoundCollection{
 	Prefix: "owult",
 	Commands: []string{
 		"!overwatch",
+		"!owult",
 	},
 	Sounds: []*Sound{
 		//looking for sounds on
@@ -151,24 +152,6 @@ var OVERWATCH *SoundCollection = &SoundCollection{
 
 		createSound("dva_;)", 1000, 250), //should be in its own sound repository
 		createSound("anyong", 1000, 250),
-		//skipping tracer for now
-
-		//missing:
-		//Bastion e/f
-		//D.Va f
-		//Genji e
-		//Hanzo ew/fw
-		//Junkrat f
-		//Mercy e/f/fd/fv (have friendly, but different voice actress)
-		//Pharah f
-		//Reaper e
-		//Roadhog e/f
-		//Soldier:76 f
-		//Symmetra e???
-		//Torbjorn f
-		//Tracer e/f?
-		//Zenyatta f
-
 	},
 }
 
@@ -727,6 +710,37 @@ func onMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			"channel": channel,
 			"message": m.ID,
 		}).Warning("Failed to grab guild")
+		return
+	}
+
+	if strings.HasPrefix(strings.ToLower(m.Content), "!help") {
+		messageLower := strings.ToLower(m.Content)
+		helpCommand := strings.Split(messageLower, " ")
+		if messageLower == "!help" || len(helpCommand) == 1 {
+			s.ChannelMessageSend(m.ChannelID, "```xl\nAirhorn Basics\nThe airhorn bot has a few different sound effects that start with !\n\t- airhorn\n\t- anotha (or anothaone)\n\t- cena (or johncena)\n\t- ethan (or ethanbradberry, eb, h3h3)\n\t- stan (or stanislav)\n\t- bday (or birthday)\n\t- roode\n\t- revival\n\t- styles (or aj)\n\t- overwatch (or owult)\nFor more commands use !help {and any of the above}\n```")
+		} else {
+			if helpCommand[1] == "airhorn" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !airhorn {any of the below}\n\t- default\n\t- reverb\n\t- tripletap\n\t- fourtap\n\t- distant\n\t- echo\n\t- clownfull\n\t- clownshort\n\t- clownspam\n\t- highfartlong\n\t- highfartshort\n\t- midshort\n\t- truck\n```")
+			} else if helpCommand[1] == "styles" || helpCommand[1] == "aj" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !styles (or !aj) {any of the below}\n\t- gay_community\n```")
+			} else if helpCommand[1] == "anotha" || helpCommand[1] == "anothaone" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !anotha (or !anothaone) {any of the below}\n\t- one\n\t- one_classic\n\t- one_echo\n```")
+			} else if helpCommand[1] == "stan" || helpCommand[1] == "stanislav" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !stan (or !stanislav) {any of the below}\n\t- herd\n\t- moo\n\t- x3\n```")
+			} else if helpCommand[1] == "bday" || helpCommand[1] == "birthday" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !bday (or !birthday) {any of the below}\n\t- horn\n\t- horn3\n\t- sadhorn\n\t- weakhorn\n```")
+			} else if helpCommand[1] == "roode" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !roode {any of the below}\n\t- glorious\n\t- defend\n\t- victorious_full\n```")
+			} else if helpCommand[1] == "revival" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !revival {any of the below}\n\t- we_go_hard\n\t- say_yeah\n```")
+			} else if helpCommand[1] == "ethan" || helpCommand[1] == "eb" || helpCommand[1] == "ethanbradberry" || helpCommand[1] == "h3h3" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !ethan (or eb, ethanbradberry, h3h3) {any of the below}\n\t- areyou_classic\n\t- areyou_condensed\n\t- areyou_crazy\n\t- areyou_ethan\n\t- classic\n\t- echo\n\t- high\n\t- slowandlown\n\t- cuts\n\t- beat\n\t- sodiepop\n```")
+			} else if helpCommand[1] == "johncena" || helpCommand[1] == "cena" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !cena (or !johncena) {any of the below}\n\t- airhorn\n\t- echo\n\t- full\n\t- jc\n\t- nameis\n\t- spam\n```")
+			} else if helpCommand[1] == "overwatch" || helpCommand[1] == "owult" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !overwatch (or !owult) {any of the below}\n\t- dva_enemy\n\t- genji_enemy\n\t- genji_friendly\n\t- hanzo_enemy\n\t- hanzo_friendly\n\t- junkrat_enemy\n\t- junkrat_friendly\n\t- lucio_friendly\n\t- lucio_enemy\n\t- mccree_enemy\n\t- mccree_friendly\n\t- mei_friendly\n\t- mei_enemy\n\t- pharah_enemy\n\t- reaper_friendly\n\t- 76_enemy\n\t- symmetra_friendly\n\t- torbjorn\n\t- tracer_enemy\n\t- tracer_friendly\n\t- widow_enemy\n\t- widow_friendly\n\t- zarya_enemy\n\t- zarya_enemy\n\t- zarya_friendly\n\t- zenyatta_enemy\n\t- dva_;)\n\t- anyong\nNote: Some ultimate sounds are missing (and as such are not listed here), so this command won't always play a sound\n```")
+			}
+		}
 		return
 	}
 
