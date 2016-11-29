@@ -279,6 +279,17 @@ var DUMMY *SoundCollection = &SoundCollection{
 	},
 }
 
+var TOBI *SoundCollection = &SoundCollection{
+	Prefix: "tobi",
+	Commands: []string{
+		"!tobi",
+		"!tobiwan",
+	},
+	Sounds: []*Sound{
+		createSound("disaster", 100, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -291,6 +302,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	REVIVAL,
 	STYLES,
 	DUMMY,
+	TOBI,
 }
 
 // Create a Sound struct
@@ -728,7 +740,7 @@ func onMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		messageLower := strings.ToLower(m.Content)
 		helpCommand := strings.Split(messageLower, " ")
 		if messageLower == "!help" || len(helpCommand) == 1 {
-			s.ChannelMessageSend(m.ChannelID, "```xl\nAirhorn Basics\nThe airhorn bot has a few different sound effects that start with !\n\t- airhorn\n\t- anotha (or anothaone)\n\t- cena (or johncena)\n\t- ethan (or ethanbradberry, eb, h3h3)\n\t- stan (or stanislav)\n\t- bday (or birthday)\n\t- roode\n\t- revival\n\t- styles (or aj)\n\t- overwatch (or owult)\n\t- dummy\nFor more commands use !help {and any of the above}\n```")
+			s.ChannelMessageSend(m.ChannelID, "```xl\nAirhorn Basics\nThe airhorn bot has a few different sound effects that start with !\n\t- airhorn\n\t- anotha (or anothaone)\n\t- cena (or johncena)\n\t- ethan (or ethanbradberry, eb, h3h3)\n\t- stan (or stanislav)\n\t- bday (or birthday)\n\t- roode\n\t- revival\n\t- styles (or aj)\n\t- overwatch (or owult)\n\t- dummy\n\t- tobi\nFor more commands use !help {and any of the above}\n```")
 		} else {
 			if helpCommand[1] == "airhorn" {
 				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !airhorn {any of the below}\n\t- default\n\t- reverb\n\t- tripletap\n\t- fourtap\n\t- distant\n\t- echo\n\t- clownfull\n\t- clownshort\n\t- clownspam\n\t- highfartlong\n\t- highfartshort\n\t- midshort\n\t- truck\n```")
@@ -752,6 +764,8 @@ func onMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !overwatch (or !owult) {any of the below}\n\t- dva_enemy\n\t- genji_enemy\n\t- genji_friendly\n\t- hanzo_enemy\n\t- hanzo_friendly\n\t- junkrat_enemy\n\t- junkrat_friendly\n\t- lucio_friendly\n\t- lucio_enemy\n\t- mccree_enemy\n\t- mccree_friendly\n\t- mei_friendly\n\t- mei_enemy\n\t- pharah_enemy\n\t- reaper_friendly\n\t- 76_enemy\n\t- symmetra_friendly\n\t- torbjorn\n\t- tracer_enemy\n\t- tracer_friendly\n\t- widow_enemy\n\t- widow_friendly\n\t- zarya_enemy\n\t- zarya_enemy\n\t- zarya_friendly\n\t- zenyatta_enemy\n\t- dva_;)\n\t- anyong\nNote: Some ultimate sounds are missing (and as such are not listed here), so this command won't always play a sound\n```")
 			} else if helpCommand[1] == "dummy" {
 				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !dummy {any of the below}\n\t- yeah\n```")
+			} else if helpCommand[1] == "tobi" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !tobi (or !tobiwan) {any of the below}\n\t- disaster\n```")
 			}
 		}
 		return
