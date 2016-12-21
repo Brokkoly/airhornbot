@@ -301,6 +301,11 @@ var JONES *SoundCollection = &SoundCollection{
 		createSound("kissing_goblins_full", 100, 250),
 		createSound("in_bed_goblin", 100, 250),
 		createSound("charging_goblins", 100, 250),
+		createSound("pepsi_taste_test", 100, 250),
+		createSound("human", 100, 250),
+		createSound("destroy_everything", 100, 250),
+		createSound("hot_blood", 100, 250),
+		createSound("have_children", 100, 250),
 	},
 }
 
