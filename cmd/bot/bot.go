@@ -309,6 +309,23 @@ var JONES *SoundCollection = &SoundCollection{
 	},
 }
 
+var MUMMY *SoundCollection = &SoundCollection{
+	Prefix: "mummy",
+	Commands: []string{
+		"!mummy",
+	},
+	Sounds: []*Sound{
+		createSound("1", 100, 250),
+		createSound("2", 100, 250),
+		createSound("3", 100, 250),
+		createSound("4", 100, 250),
+		createSound("5", 100, 250),
+		createSound("6", 100, 250),
+		createSound("7", 100, 250),
+		createSound("8", 100, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -323,6 +340,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	DUMMY,
 	TOBI,
 	JONES,
+	MUMMY,
 }
 
 // Create a Sound struct
