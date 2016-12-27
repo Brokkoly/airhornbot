@@ -778,7 +778,7 @@ func onMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		messageLower := strings.ToLower(m.Content)
 		helpCommand := strings.Split(messageLower, " ")
 		if messageLower == "!help" || len(helpCommand) == 1 {
-			s.ChannelMessageSend(m.ChannelID, "```xl\nAirhorn Basics\nThe airhorn bot has a few different sound effects that start with !\n\t- airhorn\n\t- anotha (or anothaone)\n\t- cena (or johncena)\n\t- ethan (or ethanbradberry, eb, h3h3)\n\t- stan (or stanislav)\n\t- bday (or birthday)\n\t- roode\n\t- revival\n\t- styles (or aj)\n\t- overwatch (or owult)\n\t- dummy\n\t- tobi (or tobiwan)\n\t- jones (or alexjones)\nFor more commands use !help {and any of the above}\n```")
+			s.ChannelMessageSend(m.ChannelID, "```xl\nAirhorn Basics\nThe airhorn bot has a few different sound effects that start with !\n\t- airhorn\n\t- anotha (or anothaone)\n\t- cena (or johncena)\n\t- ethan (or ethanbradberry, eb, h3h3)\n\t- stan (or stanislav)\n\t- bday (or birthday)\n\t- roode\n\t- revival\n\t- styles (or aj)\n\t- overwatch (or owult)\n\t- dummy\n\t- tobi (or tobiwan)\n\t- jones (or alexjones)\n\t- mummy\nFor more commands use !help {and any of the above}\n```")
 		} else {
 			if helpCommand[1] == "airhorn" {
 				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !airhorn {any of the below}\n\t- default\n\t- reverb\n\t- tripletap\n\t- fourtap\n\t- distant\n\t- echo\n\t- clownfull\n\t- clownshort\n\t- clownspam\n\t- highfartlong\n\t- highfartshort\n\t- midshort\n\t- truck\n```")
@@ -806,6 +806,8 @@ func onMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !tobi (or !tobiwan) {any of the below}\n\t- disaster\n```")
 			} else if helpCommand[1] == "jones" || helpCommand[1] == "alexjones" {
 				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !jones (or !alexjones) {any of the below}\n\t- charging_goblins\n\t- in_bed_goblin\n\t- kissing_goblins\n\t- kissing_goblins_full\n```")
+			} else if helpCommand[1] == "mummy" {
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !mummy (or !alexjones) {any of the below}\n\t- a number between 1 and 8\n```")
 			}
 		}
 		return
