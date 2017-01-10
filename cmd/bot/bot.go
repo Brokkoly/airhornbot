@@ -306,6 +306,10 @@ var JONES *SoundCollection = &SoundCollection{
 		createSound("destroy_everything", 100, 250),
 		createSound("hot_blood", 100, 250),
 		createSound("have_children", 100, 250),
+		createSound("gang_of_mustaches", 100, 250),
+		createSound("sick_of_it", 100, 250),
+		createSound("what_is_that_joke", 100, 250),
+		createSound("what_is_venezula", 100, 250),
 	},
 }
 
@@ -805,7 +809,7 @@ func onMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			} else if helpCommand[1] == "tobi" || helpCommand[1] == "tobiwan" {
 				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !tobi (or !tobiwan) {any of the below}\n\t- disaster\n```")
 			} else if helpCommand[1] == "jones" || helpCommand[1] == "alexjones" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !jones (or !alexjones) {any of the below}\n\t- charging_goblins\n\t- in_bed_goblin\n\t- kissing_goblins\n\t- kissing_goblins_full\n```")
+				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !jones (or !alexjones) {any of the below}\n\t- charging_goblins\n\t- in_bed_goblin\n\t- kissing_goblins\n\t- kissing_goblins_full\n\t- destroy_everything\n\t- gang_of_mustaches\n\t- have_children\n\t- human\n\t- pepsi_taste_test\n\t- sick_of_it\n\t- what_is_that_joke\n\t- what_is_venezula\n```")
 			} else if helpCommand[1] == "mummy" {
 				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !mummy (or !alexjones) {any of the below}\n\t- a number between 1 and 8\n```")
 			}
