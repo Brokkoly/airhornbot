@@ -331,6 +331,17 @@ var MUMMY *SoundCollection = &SoundCollection{
 	},
 }
 
+var IMHERE *SoundCollection = &SoundCollection{
+	Prefix: "imhere",
+	Commands: []string{
+		"!im_here",
+		"!imhere",
+	},
+	Sounds: []*Sound{
+		createSound("find_me", 100, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -346,6 +357,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	TOBI,
 	JONES,
 	MUMMY,
+	IMHERE,
 }
 
 // Create a Sound struct
