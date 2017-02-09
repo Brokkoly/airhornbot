@@ -311,6 +311,11 @@ var JONES *SoundCollection = &SoundCollection{
 		createSound("sick_of_it", 100, 250),
 		createSound("what_is_that_joke", 100, 250),
 		createSound("what_is_venezula", 100, 250),
+		createSound("the_gay_bomb", 100, 250),
+		createSound("punches", 100, 250),
+		createSound("its_a_gay_bomb", 100, 250),
+		createSound("gay_frogs", 100, 250),
+		createSound("fight_for_your_life", 100, 250),
 	},
 }
 
