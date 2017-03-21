@@ -347,6 +347,16 @@ var IMHERE *SoundCollection = &SoundCollection{
 	},
 }
 
+var NEWSREEL *SoundCollection = &SoundCollection{
+	Prefix: "newsreel",
+	Commands: []string{
+		"!newsreel",
+	},
+	Sounds: []*Sound{
+		createSound("ooh_swish", 100, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -363,6 +373,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	JONES,
 	MUMMY,
 	IMHERE,
+	NEWSREEL,
 }
 
 // Create a Sound struct
