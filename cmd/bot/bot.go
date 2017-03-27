@@ -357,6 +357,19 @@ var NEWSREEL *SoundCollection = &SoundCollection{
 	},
 }
 
+var LOGAN *SoundCollection = &SoundCollection{
+	Prefix: "logan",
+	Commands: []string{
+		"!logan",
+	},
+	Sounds: []*Sound{
+		createSound("1", 100, 250),
+		createSound("2", 100, 250),
+		createSound("3", 100, 250),
+		createSound("4", 100, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -374,6 +387,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	MUMMY,
 	IMHERE,
 	NEWSREEL,
+	LOGAN,
 }
 
 // Create a Sound struct
