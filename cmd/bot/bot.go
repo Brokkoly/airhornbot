@@ -825,36 +825,35 @@ func onMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		messageLower := strings.ToLower(m.Content)
 		helpCommand := strings.Split(messageLower, " ")
 		if messageLower == "!help" || len(helpCommand) == 1 {
-			s.ChannelMessageSend(m.ChannelID, "```xl\nAirhorn Basics\nThe airhorn bot has a few different sound effects that start with !\n\t- airhorn\n\t- anotha (or anothaone)\n\t- cena (or johncena)\n\t- ethan (or ethanbradberry, eb, h3h3)\n\t- stan (or stanislav)\n\t- bday (or birthday)\n\t- roode\n\t- revival\n\t- styles (or aj)\n\t- overwatch (or owult)\n\t- dummy\n\t- tobi (or tobiwan)\n\t- jones (or alexjones)\n\t- mummy\nFor more commands use !help {and any of the above}\n```")
+			var em = discordgo.MessageEmbed{
+				Title:       "Airhorn Basics",
+				Color:       0xE5343A,
+				Description: "Here are a list of sounds categories this bot has\n",
+			}
+			for _, sound := range COLLECTIONS {
+				em.Description += "**" + sound.Prefix + "** - " + strings.Join(sound.Commands, ", ") + "\n"
+			}
+			em.Description += "For more information about any of these commands, preform\n**!help {Any of those above prefixes}**"
+			_, err := s.ChannelMessageSendEmbed(m.ChannelID, &em)
+			if err != nil {
+				log.Error(err)
+			}
 		} else {
-			if helpCommand[1] == "airhorn" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !airhorn {any of the below}\n\t- default\n\t- reverb\n\t- tripletap\n\t- fourtap\n\t- distant\n\t- echo\n\t- clownfull\n\t- clownshort\n\t- clownspam\n\t- highfartlong\n\t- highfartshort\n\t- midshort\n\t- truck\n```")
-			} else if helpCommand[1] == "styles" || helpCommand[1] == "aj" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !styles (or !aj) {any of the below}\n\t- gay_community\n```")
-			} else if helpCommand[1] == "anotha" || helpCommand[1] == "anothaone" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !anotha (or !anothaone) {any of the below}\n\t- one\n\t- one_classic\n\t- one_echo\n```")
-			} else if helpCommand[1] == "stan" || helpCommand[1] == "stanislav" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !stan (or !stanislav) {any of the below}\n\t- herd\n\t- moo\n\t- x3\n```")
-			} else if helpCommand[1] == "bday" || helpCommand[1] == "birthday" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !bday (or !birthday) {any of the below}\n\t- horn\n\t- horn3\n\t- sadhorn\n\t- weakhorn\n```")
-			} else if helpCommand[1] == "roode" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !roode {any of the below}\n\t- glorious\n\t- defend\n\t- victorious_full\n```")
-			} else if helpCommand[1] == "revival" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !revival {any of the below}\n\t- we_go_hard\n\t- say_yeah\n```")
-			} else if helpCommand[1] == "ethan" || helpCommand[1] == "eb" || helpCommand[1] == "ethanbradberry" || helpCommand[1] == "h3h3" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !ethan (or eb, ethanbradberry, h3h3) {any of the below}\n\t- areyou_classic\n\t- areyou_condensed\n\t- areyou_crazy\n\t- areyou_ethan\n\t- classic\n\t- echo\n\t- high\n\t- slowandlown\n\t- cuts\n\t- beat\n\t- sodiepop\n```")
-			} else if helpCommand[1] == "johncena" || helpCommand[1] == "cena" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !cena (or !johncena) {any of the below}\n\t- airhorn\n\t- echo\n\t- full\n\t- jc\n\t- nameis\n\t- spam\n```")
-			} else if helpCommand[1] == "overwatch" || helpCommand[1] == "owult" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !overwatch (or !owult) {any of the below}\n\t- dva_enemy\n\t- genji_enemy\n\t- genji_friendly\n\t- hanzo_enemy\n\t- hanzo_friendly\n\t- junkrat_enemy\n\t- junkrat_friendly\n\t- lucio_friendly\n\t- lucio_enemy\n\t- mccree_enemy\n\t- mccree_friendly\n\t- mei_friendly\n\t- mei_enemy\n\t- pharah_enemy\n\t- reaper_friendly\n\t- 76_enemy\n\t- symmetra_friendly\n\t- torbjorn\n\t- tracer_enemy\n\t- tracer_friendly\n\t- widow_enemy\n\t- widow_friendly\n\t- zarya_enemy\n\t- zarya_enemy\n\t- zarya_friendly\n\t- zenyatta_enemy\n\t- dva_;)\n\t- anyong\nNote: Some ultimate sounds are missing (and as such are not listed here), so this command won't always play a sound\n```")
-			} else if helpCommand[1] == "dummy" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !dummy {any of the below}\n\t- yeah\n```")
-			} else if helpCommand[1] == "tobi" || helpCommand[1] == "tobiwan" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !tobi (or !tobiwan) {any of the below}\n\t- disaster\n```")
-			} else if helpCommand[1] == "jones" || helpCommand[1] == "alexjones" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !jones (or !alexjones) {any of the below}\n\t- charging_goblins\n\t- in_bed_goblin\n\t- kissing_goblins\n\t- kissing_goblins_full\n\t- destroy_everything\n\t- gang_of_mustaches\n\t- have_children\n\t- human\n\t- pepsi_taste_test\n\t- sick_of_it\n\t- what_is_that_joke\n\t- what_is_venezula\n```")
-			} else if helpCommand[1] == "mummy" {
-				s.ChannelMessageSend(m.ChannelID, "```xl\nTo do play any of these sounds do !mummy (or !alexjones) {any of the below}\n\t- a number between 1 and 8\n```")
+			for _, sound := range COLLECTIONS {
+				if helpCommand[1] == sound.Prefix {
+					var em = discordgo.MessageEmbed{
+						Title:       sound.Prefix,
+						Color:       0xE5343A,
+						Description: "Here are a list of sounds that can be used with this prefix\nTo use these use " + strings.Join(sound.Commands, ", ") + " {any of the below}\n",
+					}
+					for _, v := range sound.Sounds {
+						em.Description += v.Name + "\n"
+					}
+					_, err := s.ChannelMessageSendEmbed(m.ChannelID, &em)
+					if err != nil {
+						log.Error(err)
+					}
+				}
 			}
 		}
 		return
