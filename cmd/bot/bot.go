@@ -138,8 +138,8 @@ var OVERWATCH *SoundCollection = &SoundCollection{
 		createSound("roadhog_friendly", 1000, 250),
 		createSound("76_enemy", 1000, 250), //consider shortening to s76, s:76?
 		createSound("76_friendly", 1000, 250),
-		createSound("symmetra_friendly", 1000, 250),
-		createSound("symmetra_enemy", 1000, 250), //each hero has a line for when they see an enemy symmetra turret. not sure how to implement
+		createSound("symmetra_teleporter", 1000, 250),
+		createSound("symmetra_shield", 1000, 250),
 		createSound("torbjorn", 1000, 250),
 		createSound("tracer_enemy", 1000, 250),    //enemy line has variations. variations are an argument for splitting it up to be !owtracer, putting them in separate sound collections
 		createSound("tracer_friendly", 1000, 250), //doesn't exist?
@@ -370,6 +370,16 @@ var LOGAN *SoundCollection = &SoundCollection{
 	},
 }
 
+var FOXY *SoundCollection = &SoundCollection{
+	Prefix: "foxy",
+	Commands: []string{
+		"!foxy",
+	},
+	Sounds: []*Sound{
+		createSound("trying", 100, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -388,6 +398,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	IMHERE,
 	NEWSREEL,
 	LOGAN,
+	FOXY,
 }
 
 // Create a Sound struct
