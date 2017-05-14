@@ -314,7 +314,7 @@ var JONES *SoundCollection = &SoundCollection{
 		createSound("gang_of_mustaches", 100, 250),
 		createSound("sick_of_it", 100, 250),
 		createSound("what_is_that_joke", 100, 250),
-		createSound("what_is_venezula", 100, 250),
+		createSound("what_is_venezuela", 100, 250),
 		createSound("the_gay_bomb", 100, 250),
 		createSound("punches", 100, 250),
 		createSound("its_a_gay_bomb", 100, 250),
