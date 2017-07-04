@@ -384,6 +384,28 @@ var FOXY *SoundCollection = &SoundCollection{
 	},
 }
 
+var ENZO *SoundCollection = &SoundCollection{
+	Prefix: "enzo",
+	Commands: []string{
+		"!enzo",
+	},
+	Sounds: []*Sound{
+		createSound("sawft_arena", 100, 250),
+	},
+}
+
+var MONEY *SoundCollection = &SoundCollection{
+	Prefix: "money",
+	Commands: []string{
+		"!money",
+	},
+	Sounds: []*Sound{
+		createSound("lodsofemone", 100, 250),
+		createSound("lodsofemone_full", 100, 250),
+		createSound("wopitout", 100, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -403,6 +425,8 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	NEWSREEL,
 	LOGAN,
 	FOXY,
+	ENZO,
+	MONEY,
 }
 
 // Create a Sound struct
