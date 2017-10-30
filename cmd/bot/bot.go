@@ -406,6 +406,50 @@ var MONEY *SoundCollection = &SoundCollection{
 	},
 }
 
+var GW2 *SoundCollection = &SoundCollection{
+	Prefix: "gw2",
+	Commands: []string{
+		"!gw2",
+	},
+	Sounds: []*Sound{
+		createSound("rose", 100, 250),
+	},
+}
+
+var WEED *SoundCollection = &SoundCollection{
+	Prefix: "theweed",
+	Commands: []string{
+		"!theweed",
+		"!weed",
+	},
+	Sounds: []*Sound{
+		createSound("all", 100, 250),
+	},
+}
+
+var TF2 *SoundCollection = &SoundCollection{
+	Prefix: "tf2",
+	Commands: []string{
+		"!tf2",
+	},
+	Sounds: []*Sound{
+		createSound("overtime1", 100, 250),
+		createSound("overtime2", 100, 250),
+		createSound("overtime3", 100, 250),
+		createSound("overtime4", 100, 250),
+	},
+}
+
+var ASSBLAST *SoundCollection = &SoundCollection{
+	Prefix: "assblastusa",
+	Commands: []string{
+		"!assblastusa",
+	},
+	Sounds: []*Sound{
+		createSound("full", 100, 250),
+	},
+}
+
 var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
@@ -427,6 +471,10 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	FOXY,
 	ENZO,
 	MONEY,
+	GW2,
+	WEED,
+	TF2,
+	ASSBLAST,
 }
 
 // Create a Sound struct
