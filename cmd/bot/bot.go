@@ -189,29 +189,6 @@ var CENA *SoundCollection = &SoundCollection{
 	},
 }
 
-var ETHAN *SoundCollection = &SoundCollection{
-	Prefix: "ethan",
-	Commands: []string{
-		"!ethan",
-		"!eb",
-		"!ethanbradberry",
-		"!h3h3",
-	},
-	Sounds: []*Sound{
-		createSound("areyou_classic", 100, 250),
-		createSound("areyou_condensed", 100, 250),
-		createSound("areyou_crazy", 100, 250),
-		createSound("areyou_ethan", 100, 250),
-		createSound("classic", 100, 250),
-		createSound("echo", 100, 250),
-		createSound("high", 100, 250),
-		createSound("slowandlow", 100, 250),
-		createSound("cuts", 30, 250),
-		createSound("beat", 30, 250),
-		createSound("sodiepop", 1, 250),
-	},
-}
-
 var COW *SoundCollection = &SoundCollection{
 	Prefix: "cow",
 	Commands: []string{
@@ -454,7 +431,6 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	AIRHORN,
 	KHALED,
 	CENA,
-	ETHAN,
 	COW,
 	BIRTHDAY,
 	OVERWATCH,
