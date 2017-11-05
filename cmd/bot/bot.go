@@ -260,14 +260,21 @@ var DUMMY *SoundCollection = &SoundCollection{
 	},
 }
 
-var TOBI *SoundCollection = &SoundCollection{
-	Prefix: "tobi",
+var DOTA *SoundCollection = &SoundCollection{
+	Prefix: "dota",
 	Commands: []string{
+		"!dota",
 		"!tobi",
 		"!tobiwan",
 	},
 	Sounds: []*Sound{
+		createSound("alldead", 100, 250),
+		createSound("digitalsports", 100, 250),
+		createSound("dingdingding", 100, 250),
 		createSound("disaster", 100, 250),
+		createSound("liquid", 100, 250),
+		createSound("pudge", 100, 250),
+		createSound("waow", 100, 250),
 	},
 }
 
@@ -438,7 +445,7 @@ var COLLECTIONS []*SoundCollection = []*SoundCollection{
 	REVIVAL,
 	STYLES,
 	DUMMY,
-	TOBI,
+	DOTA,
 	JONES,
 	MUMMY,
 	IMHERE,
