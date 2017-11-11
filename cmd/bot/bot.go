@@ -716,7 +716,22 @@ func playSound(play *Play, vc *discordgo.VoiceConnection) (err error) {
 
 func onReady(s *discordgo.Session, event *discordgo.Ready) {
 	log.Info("Recieved READY payload")
-	s.UpdateStatus(0, "github.com/noisemaster/airhornbot")
+	status := 0 //A good line
+
+	// A work around to get to GameType "2" (Listening to ...)
+	dup := discordgo.UpdateStatusData{
+		Status:    "online",
+		IdleSince: &status,
+		Game: &discordgo.Game{
+			Name: "airhorn.wav",
+			Type: discordgo.GameType(2),
+			URL:  "",
+		},
+	}
+	err := s.UpdateStatusComplex(dup)
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func onGuildCreate(s *discordgo.Session, event *discordgo.GuildCreate) {
